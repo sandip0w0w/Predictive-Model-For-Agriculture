@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 import plotly.figure_factory as ff
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
-df = pd.read_csv('D:\Pred Mod\soil_data.csv')
+df = pd.read_csv('soil_data.csv')
 def add_ratios(X):
   X = X.copy()
   X['N_P_ratio'] = X['N'] / (X['P'] + 1e-5) # adding epsilon to avoid division by zero
@@ -380,4 +380,5 @@ limited by these identical data profiles rather than an issue with the underlyin
 
 if __name__ == "__main__":
   main()
+
 
