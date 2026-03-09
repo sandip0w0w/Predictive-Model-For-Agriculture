@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('D:\Pred Mod\soil_data.csv')
+df = pd.read_csv('soil_data.csv')
 
 
 def nutrient_score(df, crop_name):
@@ -77,3 +77,4 @@ def npk_balance(df, crop_name, tolerance = 0.05):
 
     
     
+
