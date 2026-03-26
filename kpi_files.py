@@ -58,16 +58,12 @@ def npk_balance(df, crop_name, tolerance = 0.05):
          "K" :crop_df['K'].mean()/ total                                                                              
     }
 
-    def classify(actual, ideal):
-        if abs(actual - ideal) <= tolerance:
-            return "Optimal"
-        elif actual > ideal:
-            return "High"
-        else:
-            return "Low"
+    def calculate_diff(actual, ideal):
+        return actual - ideal
     
     ideal = ideal_ratios.get(crop_name)
-    status = {nutrient: classify(ratios[nutrient], ideal[nutrient]) for nutrient in ratios}
+    status = {nutrient: calculate_diff(ratios[nutrient], ideal[nutrient]) for nutrient in ratios}
+    
 
     return ratios, status
 
