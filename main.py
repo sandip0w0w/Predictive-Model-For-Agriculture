@@ -110,20 +110,12 @@ def main():
     
     ratios, status = npk_balance(df, choice)
 
-
-    def color_status(status, ratios):
-      if status == "Optimal":
-          return f":green[{ratios:.2f}]"
-      elif status == "High":
-          return f":orange[{ratios:.2f}]"
-      else:
-          return f":red[{ratios:.2f}]"
-
-
+    
     with col3:
       st.metric(
         label = "Nitrogen Ratio",
-        value = color_status(status["N"], ratios["N"]),
+        value = f"{ratios["N"]:.2f}",
+        delta = f"{status["N"]:.2f}",
         border = True
         
       )
@@ -131,7 +123,8 @@ def main():
     with col4:
       st.metric(
         label = "Phosphorous Ratio",
-        value = color_status(status["P"], ratios["P"]),
+        value = f"{ratios["P"]:.2f}",
+        delta = f"{status["P"]:.2f}",
         border = True
         
       )
@@ -139,7 +132,8 @@ def main():
     with col5:
       st.metric(
         label = "Potassium Ratio",
-        value = color_status(status["K"], ratios["K"]),
+        value = f"{ratios["K"]:.2f}",
+        delta = f"{status["K"]:.2f}",
         border = True
     
       )
